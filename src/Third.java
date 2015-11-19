@@ -23,6 +23,7 @@ public class Third extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         //Põhiakna kirjeldus
         window = primaryStage;
         primaryStage.setTitle("Fun");
@@ -32,30 +33,26 @@ public class Third extends Application {
         // Põhiline Layout BorderPane
         BorderPane Raamistik = new BorderPane();
         Raamistik.setBottom(BottomMenu());
-
         Raamistik.setPadding(new Insets(10,10,10,10));
 
 
         Scene scene = new Scene(Raamistik, 600, 600);
         window.setScene(scene);
         window.show();
-
+        alligaatoriViisKalkulaator(1,6);
 
     }
 
+
+
     // Meetodid siit alla
 
-
-
-    private void KeskneTekst(TextField userInput) {
+    private void KeskneLabel(TextField userInput) {
 
         GridPane Keskne = new GridPane();
         Label centerText = new Label(userInput.toString());
         GridPane.setConstraints(centerText,0,0);
         Keskne.getChildren().addAll(centerText);
-
-
-
 
     }
 
@@ -70,17 +67,20 @@ public class Third extends Application {
         // CheckBox
         CheckBox checkbox1 = new CheckBox("Suur");
 
-
         // TextField
-        TextField userInput = new TextField();
-        userInput.setPromptText("Kirjuta siia oma tekst");
+        TextField bottomUserIntInput = new TextField();
+        bottomUserIntInput.setPromptText("Kirjuta siia täisarv");
 
         // LocalButton
         Button localButton = new Button("Kliki siia");
-        localButton.setOnAction(e -> localButtonAction(userInput, checkbox1));
+        localButton.setOnAction(e ->
+        {
+            isInt(bottomUserIntInput, bottomUserIntInput.getText());
+            localButtonAction(bottomUserIntInput, checkbox1);
+        });
 
         // Lisan kõik listi
-        hList.getChildren().addAll(userInput, checkbox1, localButton);
+        hList.getChildren().addAll(bottomUserIntInput, checkbox1, localButton);
 
         return hList;
     }
@@ -88,15 +88,25 @@ public class Third extends Application {
     private String localButtonAction(TextField userInput, CheckBox checkBox1) {
 
         if (checkBox1.isSelected()) {
-            KeskneTekst(userInput);
+            KeskneLabel(userInput);
             return userInput.getText();
+
         } else {
             System.out.println("None");
         }
         return null;
     }
 
+    private static int alligaatoriViisKalkulaator(double number1, double number2){
 
+        int sum=0;
+            for(int i = 0; i<5;i++){
+            sum += number1 +5;
+            System.out.println(sum);
+
+        }
+        return sum;
+    }
 
 
 
@@ -113,7 +123,6 @@ public class Third extends Application {
     private boolean isInt(TextField input, String message) {
         try {
             int age = Integer.parseInt(input.getText());
-            System.out.println("User is " + age);
             return true;
         } catch (NumberFormatException e) {
             System.out.println("Error ˇ" + message + "ˇ is not a valid number");
