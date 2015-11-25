@@ -1,3 +1,5 @@
+package tekstitöötlusprogramm;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -11,7 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Third extends Application {
+public class Main extends Application {
 
     Button actionButton;
     Stage window;
@@ -26,20 +28,18 @@ public class Third extends Application {
 
         //Põhiakna kirjeldus
         window = primaryStage;
-        primaryStage.setTitle("Fun");
+        primaryStage.setTitle("Numbritöötleja");
         primaryStage.setResizable(false);
-
 
         // Põhiline Layout BorderPane
         BorderPane Raamistik = new BorderPane();
-        Raamistik.setBottom(BottomMenu());
+        Raamistik.setBottom(BottomBox.BottomMenu());
         Raamistik.setPadding(new Insets(10,10,10,10));
 
-
-        Scene scene = new Scene(Raamistik, 600, 600);
+        // Stseeni suurus
+        Scene scene = new Scene(Raamistik, 300, 300);
         window.setScene(scene);
         window.show();
-        alligaatoriViisKalkulaator(1,6);
 
     }
 
@@ -47,55 +47,7 @@ public class Third extends Application {
 
     // Meetodid siit alla
 
-    private void KeskneLabel(TextField userInput) {
 
-        GridPane Keskne = new GridPane();
-        Label centerText = new Label(userInput.toString());
-        GridPane.setConstraints(centerText,0,0);
-        Keskne.getChildren().addAll(centerText);
-
-    }
-
-
-    private HBox BottomMenu() {
-
-        // Teen Hbox stiilis
-        HBox hList = new HBox(10);
-        hList.setSpacing(8);
-
-        // Asjad, mida ma lisan Hboxi
-        // CheckBox
-        CheckBox checkbox1 = new CheckBox("Suur");
-
-        // TextField
-        TextField bottomUserIntInput = new TextField();
-        bottomUserIntInput.setPromptText("Kirjuta siia täisarv");
-
-        // LocalButton
-        Button localButton = new Button("Kliki siia");
-        localButton.setOnAction(e ->
-        {
-            isInt(bottomUserIntInput, bottomUserIntInput.getText());
-            localButtonAction(bottomUserIntInput, checkbox1);
-        });
-
-        // Lisan kõik listi
-        hList.getChildren().addAll(bottomUserIntInput, checkbox1, localButton);
-
-        return hList;
-    }
-
-    private String localButtonAction(TextField userInput, CheckBox checkBox1) {
-
-        if (checkBox1.isSelected()) {
-            KeskneLabel(userInput);
-            return userInput.getText();
-
-        } else {
-            System.out.println("None");
-        }
-        return null;
-    }
 
     private static int alligaatoriViisKalkulaator(double number1, double number2){
 
