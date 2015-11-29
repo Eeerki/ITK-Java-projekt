@@ -12,7 +12,7 @@ public class BottomBox {
 
     static TextField bottomUserInput = new TextField();
     public static Button actionButton = new Button("Click");
-
+    static CheckBox checkbox1 = new CheckBox("Example");
 
 
     public static HBox bottomMenu() {
@@ -23,7 +23,7 @@ public class BottomBox {
 
         // Asjad, mida ma lisan Hboxi
         // CheckBox
-        CheckBox checkbox1 = new CheckBox("Example");
+
 
         // TextField
         bottomUserInput.setPromptText("Kirjuta siia oma tekst");
