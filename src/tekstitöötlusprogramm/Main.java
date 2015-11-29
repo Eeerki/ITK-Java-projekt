@@ -5,12 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -34,7 +30,10 @@ public class Main extends Application {
         // Põhiline Layout BorderPane
         BorderPane Raamistik = new BorderPane();
         Raamistik.setBottom(BottomBox.BottomMenu());
-        Raamistik.setPadding(new Insets(10,10,10,10));
+
+        Raamistik.setPadding(new Insets(10, 10, 10, 10));
+
+
 
         // Stseeni suurus
         Scene scene = new Scene(Raamistik, 300, 300);
@@ -44,34 +43,15 @@ public class Main extends Application {
     }
 
 
-
     // Meetodid siit alla
 
 
-
-    private static int alligaatoriViisKalkulaator(double number1, double number2){
-
-        int sum=0;
-            for(int i = 0; i<5;i++){
-            sum += number1 +5;
-            System.out.println(sum);
-
-        }
-        return sum;
-    }
+// Loopi vaja
+    // Massiivi vaja
+    // ArrayList vb?
 
 
-
-
-
-
-
-
-
-
-
-
-
+    // Kontrollib kas on INT
     private boolean isInt(TextField input, String message) {
         try {
             int age = Integer.parseInt(input.getText());
