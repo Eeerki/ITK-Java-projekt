@@ -1,14 +1,13 @@
 package tekstitöötlusprogramm;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-/**
- * Created by Erki on 25.11.2015.
- */
+
 public class CenterText {
 
     static Label newLabel = new Label();
@@ -50,21 +49,29 @@ public class CenterText {
    static public void event1(){
 
         newLabel.setText(BottomBox.bottomUserInput.getText());
+        if (checkBox1()){
 
-
+            newLabel.setFont(new Font("Arial", 30));
+        }
+        else {
+            newLabel.setFont(new Font("Arial", 50));
+        }
        System.out.println("Esimene event");
     }
 
 
     // Juhtum 2, mis juhtub
-    static public void event2(){
+    static public boolean checkBox1(){
+        if (BottomBox.checkbox1.isSelected()){
+            return true;
+        }
+        else{
+            System.out.println("Jõudsin siia");
+            return false;
+        }
 
-        String text = BottomBox.bottomUserInput.getText();
 
-        newLabel.setText(text);
-        newLabel.setFont(Font.font ("Verdana", 20));
 
-        System.out.println("Teine event");
     }
 
 
