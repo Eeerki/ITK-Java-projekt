@@ -17,11 +17,6 @@ public class CenterText {
 
         VBox Keskne = new VBox();
 
-
-
-
-
-
             BottomBox.actionButton.setOnAction(
                     e-> event1());
 
