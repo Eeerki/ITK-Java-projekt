@@ -1,19 +1,17 @@
 package tekstitöötlusprogramm;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
-/**
- * Created by Erki on 25.11.2015.
- */
+
 public class BottomBox {
 
     static TextField bottomUserInput = new TextField();
-    public static Button actionButton = new Button("Click");
-    static CheckBox checkbox1 = new CheckBox("Example");
-
+    public static Button actionButton = new Button("Vajuta siia");
+    static CheckBox checkboxEfekt = new CheckBox("Blur");
+    static CheckBox checkboxV2rvidLubatud = new CheckBox("Värvimuutus lubatud");
+    static ColorPicker colorPicker = new ColorPicker(Color.BLACK);
 
     public static HBox bottomMenu() {
 
@@ -22,7 +20,10 @@ public class BottomBox {
         hList.setSpacing(8);
 
         // Asjad, mida ma lisan Hboxi
-        // CheckBox
+
+        // Combobox
+
+
 
 
         // TextField
@@ -33,7 +34,7 @@ public class BottomBox {
 
 
         // Lisan kõik listi
-        hList.getChildren().addAll(bottomUserInput, checkbox1, actionButton);
+        hList.getChildren().addAll(bottomUserInput, checkboxEfekt,checkboxV2rvidLubatud, colorPicker, actionButton);
 
         return hList;
     }

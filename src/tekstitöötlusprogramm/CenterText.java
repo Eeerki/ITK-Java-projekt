@@ -1,24 +1,27 @@
 package tekstitöötlusprogramm;
 
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 
 public class CenterText {
 
     static Label newLabel = new Label();
 
-    public static VBox menu(){
+    public static VBox menu() {
 
 
-        VBox Keskne = new VBox();
+         VBox Keskne = new VBox();
 
-            BottomBox.actionButton.setOnAction(
-                    e-> event1());
+        BottomBox.actionButton.setOnAction(
+                e -> event1());
 
         Keskne.getChildren().addAll(newLabel);
 
@@ -35,40 +38,78 @@ public class CenterText {
         System.out.println(v2lja);
 
 
-
         return centerText;
 
 
     }
 
-   static public void event1(){
+
+    // Nupuvajutus efektid
+
+    static public void event1() {
 
         newLabel.setText(BottomBox.bottomUserInput.getText());
-        if (checkBox1()){
+        newLabel.setFont(new Font("Arial", 30));
+        newLabel.setTextAlignment(TextAlignment.CENTER);
 
-            newLabel.setFont(new Font("Arial", 30));
+        // Teeb teksti siniseks
+        if(checkBoxSinine()){
+
+            newLabel.setTextFill(BottomBox.colorPicker.getValue());
         }
         else {
-            newLabel.setFont(new Font("Arial", 50));
+            newLabel.setTextFill(Color.BLACK);
         }
-       System.out.println("Esimene event");
+
+
+
+        // Efekt
+        if (checkBoxEfekt()){
+
+            // Kirjeldan bluri
+            BoxBlur blur = new BoxBlur();
+            blur.setWidth(6);
+            blur.setHeight(6);
+            blur.setIterations(3);
+
+            // Määran bluri
+            newLabel.setEffect(blur);
+            }
+
+
+        else{
+            newLabel.setEffect(null);
+        }
     }
 
 
-    // Juhtum 2, mis juhtub
-    static public boolean checkBox1(){
-        if (BottomBox.checkbox1.isSelected()){
+
+
+
+
+
+    // checkBox1 kontroll, boolean tüüpi
+
+    static private boolean checkBoxEfekt() {
+        if (BottomBox.checkboxEfekt.isSelected()) {
             return true;
-        }
-        else{
-            System.out.println("Jõudsin siia");
+        } else {
             return false;
         }
 
 
-
     }
+    // End of checkBox1
 
+    // checkBox2 kontroll, boolean tüüpi
+    static private boolean checkBoxSinine(){
+        if (BottomBox.checkboxV2rvidLubatud.isSelected()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }
