@@ -1,5 +1,7 @@
 package tekstitöötlusprogramm;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -8,9 +10,12 @@ import javafx.scene.paint.Color;
 public class BottomBox {
 
     static TextField bottomUserInput = new TextField();
+    // Mitu characteri saab kasti kirjutada
+    private static final int textLimit = 20;
     public static Button actionButton = new Button("Vajuta siia");
     static CheckBox checkboxEfekt = new CheckBox("Blur");
-    static CheckBox checkboxV2rvidLubatud = new CheckBox("Värvimuutus lubatud");
+
+    static CheckBox checkBoxCharcterOpposite = new CheckBox("Tagurpidi tähed");
     static ColorPicker colorPicker = new ColorPicker(Color.BLACK);
 
     public static HBox bottomMenu() {
@@ -21,22 +26,29 @@ public class BottomBox {
 
         // Asjad, mida ma lisan Hboxi
 
-        // Combobox
-
-
-
-
         // TextField
         bottomUserInput.setPromptText("Kirjuta siia oma tekst");
-        String labelStringText = bottomUserInput.getText();
+        bottomUserInput.lengthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (bottomUserInput.getText().length() >= textLimit){
+
+                    bottomUserInput.setText(bottomUserInput.getText().substring(0, textLimit));
+                }
+            }
+        });
+
 
         //ActionBox tegevused
 
 
         // Lisan kõik listi
-        hList.getChildren().addAll(bottomUserInput, checkboxEfekt,checkboxV2rvidLubatud, colorPicker, actionButton);
+        hList.getChildren().addAll(bottomUserInput, checkboxEfekt, colorPicker,checkBoxCharcterOpposite, actionButton);
 
         return hList;
     }
+
+
 }
 

@@ -37,9 +37,7 @@ public class CenterText {
 
         System.out.println(v2lja);
 
-
         return centerText;
-
 
     }
 
@@ -52,19 +50,12 @@ public class CenterText {
         newLabel.setFont(new Font("Arial", 30));
         newLabel.setTextAlignment(TextAlignment.CENTER);
 
-        // Teeb teksti siniseks
-        if(checkBoxSinine()){
+        //Muudab teksti värvi
 
             newLabel.setTextFill(BottomBox.colorPicker.getValue());
-        }
-        else {
-            newLabel.setTextFill(Color.BLACK);
-        }
 
-
-
-        // Efekt
-        if (checkBoxEfekt()){
+        // Blur efekt
+        if (checkBoxBlurEfekt()){
 
             // Kirjeldan bluri
             BoxBlur blur = new BoxBlur();
@@ -80,17 +71,21 @@ public class CenterText {
         else{
             newLabel.setEffect(null);
         }
+
+
+        if(BottomBox.checkBoxCharcterOpposite.isSelected()){
+            newLabel.setText(oppositeCharacter());
+        }
+        else{
+            newLabel.setText(BottomBox.bottomUserInput.getText());
+        }
     }
-
-
-
-
 
 
 
     // checkBox1 kontroll, boolean tüüpi
 
-    static private boolean checkBoxEfekt() {
+    static private boolean checkBoxBlurEfekt() {
         if (BottomBox.checkboxEfekt.isSelected()) {
             return true;
         } else {
@@ -101,15 +96,23 @@ public class CenterText {
     }
     // End of checkBox1
 
-    // checkBox2 kontroll, boolean tüüpi
-    static private boolean checkBoxSinine(){
-        if (BottomBox.checkboxV2rvidLubatud.isSelected()){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    // Prindib välja tagurpidi Stringi
 
+    static private String oppositeCharacter(){
+
+            String returnString= "";
+            String algneSisend = newLabel.getText();
+
+            System.out.println(algneSisend);
+            for (int i = algneSisend.length()-1; i>=0;i--){
+                char tempChar = algneSisend.charAt(i);
+
+                returnString = returnString + tempChar;
+
+            }
+
+            return returnString;
+
+        }
 
 }
