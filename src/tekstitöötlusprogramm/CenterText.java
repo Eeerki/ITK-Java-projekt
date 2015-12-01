@@ -1,12 +1,8 @@
 package tekstitöötlusprogramm;
 
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
@@ -26,18 +22,6 @@ public class CenterText {
         Keskne.getChildren().addAll(newLabel);
 
         return Keskne;
-
-    }
-
-
-    public static Label action(TextField userInput) {
-
-        String v2lja = userInput.getText();
-        Label centerText = new Label(v2lja);
-
-        System.out.println(v2lja);
-
-        return centerText;
 
     }
 
@@ -72,7 +56,7 @@ public class CenterText {
             newLabel.setEffect(null);
         }
 
-
+// Tingimus, tagurpidi teksti kirjutamiseks
         if(BottomBox.checkBoxCharcterOpposite.isSelected()){
             newLabel.setText(oppositeCharacter());
         }
@@ -86,15 +70,9 @@ public class CenterText {
     // checkBox1 kontroll, boolean tüüpi
 
     static private boolean checkBoxBlurEfekt() {
-        if (BottomBox.checkboxEfekt.isSelected()) {
-            return true;
-        } else {
-            return false;
-        }
-
-
+        return BottomBox.checkboxEfekt.isSelected();
     }
-    // End of checkBox1
+
 
     // Prindib välja tagurpidi Stringi
 
@@ -102,8 +80,6 @@ public class CenterText {
 
             String returnString= "";
             String algneSisend = newLabel.getText();
-
-            System.out.println(algneSisend);
             for (int i = algneSisend.length()-1; i>=0;i--){
                 char tempChar = algneSisend.charAt(i);
 

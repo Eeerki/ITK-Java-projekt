@@ -2,7 +2,10 @@ package tekstitöötlusprogramm;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
@@ -15,7 +18,7 @@ public class BottomBox {
     public static Button actionButton = new Button("Vajuta siia");
     static CheckBox checkboxEfekt = new CheckBox("Blur");
 
-    static CheckBox checkBoxCharcterOpposite = new CheckBox("Tagurpidi tähed");
+    static CheckBox checkBoxCharcterOpposite = new CheckBox("Tagurpidi");
     static ColorPicker colorPicker = new ColorPicker(Color.BLACK);
 
     public static HBox bottomMenu() {
