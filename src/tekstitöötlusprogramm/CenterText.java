@@ -63,7 +63,8 @@ public class CenterText {
         if (BottomBox.looper.isSelected()) {
             String s = newLabel.getText();
             for (int i = 0; i < 2; i++) {
-                s += s;
+                String temp = s + s;
+                s = temp;
             }
             newLabel.setText(s);
         }
