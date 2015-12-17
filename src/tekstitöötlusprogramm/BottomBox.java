@@ -17,6 +17,8 @@ public class BottomBox {
     private static final int textLimit = 20;
     public static Button actionButton = new Button("Vajuta siia");
     static CheckBox checkboxEfekt = new CheckBox("Blur");
+    static CheckBox looper = new CheckBox("Loop");
+
 
     static CheckBox checkBoxCharcterOpposite = new CheckBox("Tagurpidi");
     static ColorPicker colorPicker = new ColorPicker(Color.BLACK);
@@ -26,8 +28,6 @@ public class BottomBox {
         // Teen Hbox stiilis
         HBox hList = new HBox(10);
         hList.setSpacing(8);
-
-        // Asjad, mida ma lisan Hboxi
 
         // TextField
         bottomUserInput.setPromptText("Kirjuta siia oma tekst");
@@ -43,11 +43,8 @@ public class BottomBox {
         });
 
 
-        //ActionBox tegevused
-
-
         // Lisan kõik listi
-        hList.getChildren().addAll(bottomUserInput, checkboxEfekt, colorPicker,checkBoxCharcterOpposite, actionButton);
+        hList.getChildren().addAll(bottomUserInput, looper, checkboxEfekt, colorPicker, checkBoxCharcterOpposite, actionButton);
 
         return hList;
     }

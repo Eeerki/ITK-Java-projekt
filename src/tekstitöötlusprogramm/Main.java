@@ -34,7 +34,7 @@ public class Main extends Application {
         Raamistik.setPadding(new Insets(10, 10, 10, 10));
 
         // Programmivälja suurus
-        Scene scene = new Scene(Raamistik, 550, 80);
+        Scene scene = new Scene(Raamistik, 600, 80);
 
         window.setScene(scene);
         window.show();

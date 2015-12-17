@@ -14,7 +14,7 @@ public class CenterText {
     public static VBox menu() {
 
 
-         VBox Keskne = new VBox();
+        VBox Keskne = new VBox();
 
         BottomBox.actionButton.setOnAction(
                 e -> event1());
@@ -36,35 +36,39 @@ public class CenterText {
 
         //Muudab teksti värvi
 
-            newLabel.setTextFill(BottomBox.colorPicker.getValue());
+        newLabel.setTextFill(BottomBox.colorPicker.getValue());
 
         // Blur efekt
-        if (checkBoxBlurEfekt()){
+        if (checkBoxBlurEfekt()) {
 
             // Kirjeldan bluri
             BoxBlur blur = new BoxBlur();
             blur.setWidth(6);
             blur.setHeight(6);
-            blur.setIterations(3);
+            blur.setIterations(8);
 
             // Määran bluri
             newLabel.setEffect(blur);
-            }
-
-
-        else{
+        } else {
             newLabel.setEffect(null);
         }
 
 // Tingimus, tagurpidi teksti kirjutamiseks
-        if(BottomBox.checkBoxCharcterOpposite.isSelected()){
+        if (BottomBox.checkBoxCharcterOpposite.isSelected()) {
             newLabel.setText(oppositeCharacter());
-        }
-        else{
+        } else {
             newLabel.setText(BottomBox.bottomUserInput.getText());
         }
-    }
 
+        if (BottomBox.looper.isSelected()) {
+            String s = newLabel.getText();
+            for (int i = 0; i < 2; i++) {
+                s += s;
+            }
+            newLabel.setText(s);
+        }
+
+    }
 
 
     // checkBox1 kontroll, boolean tüüpi
@@ -76,19 +80,19 @@ public class CenterText {
 
     // Prindib välja tagurpidi Stringi
 
-    static private String oppositeCharacter(){
+    static private String oppositeCharacter() {
 
-            String returnString= "";
-            String algneSisend = newLabel.getText();
-            for (int i = algneSisend.length()-1; i>=0;i--){
-                char tempChar = algneSisend.charAt(i);
+        String returnString = "";
+        String algneSisend = newLabel.getText();
+        for (int i = algneSisend.length() - 1; i >= 0; i--) {
+            char tempChar = algneSisend.charAt(i);
 
-                returnString = returnString + tempChar;
-
-            }
-
-            return returnString;
+            returnString = returnString + tempChar;
 
         }
+
+        return returnString;
+
+    }
 
 }
